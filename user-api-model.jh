@@ -1,0 +1,76 @@
+entity User {
+	extUserId String required
+	firstName String required,
+    middleName String,
+    lastName String required,
+    email String,
+    phone String,
+    gender Gender required,
+    active Boolean required,
+    verified Boolean required,
+    createdBy String required,
+    createdAt LocalDate required,
+    modifiedBy String,
+    modifiedAt LocalDate
+}
+
+entity Country {
+	code String required,
+	name String required,
+    createdBy String required,
+    createdAt LocalDate required,
+    modifiedBy String,
+    modifiedAt LocalDate
+}
+
+entity City {
+	code String required,
+	name String required,
+    createdBy String required,
+    createdAt LocalDate required,
+    modifiedBy String,
+    modifiedAt LocalDate
+}
+
+entity State {
+	code String required,
+	name String required,
+    createdBy String required,
+    createdAt LocalDate required,
+    modifiedBy String,
+    modifiedAt LocalDate
+}
+
+enum Gender {
+	MALE, FEMALE
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Address {
+	addressline1 String required,
+    addressline2 String,
+    postalCode String,
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	City{state} to State,
+	State{country} to Country,
+	User{address} to Address,
+    Address{city} to City,
+    Address{state} to State,
+    Address{country} to Country
+}
+
+
+paginate User with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
