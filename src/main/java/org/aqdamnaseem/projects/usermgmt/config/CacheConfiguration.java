@@ -40,6 +40,13 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
+            createCache(cm, org.aqdamnaseem.projects.usermgmt.domain.Customer.class.getName());
+            createCache(cm, org.aqdamnaseem.projects.usermgmt.domain.Country.class.getName());
+            createCache(cm, org.aqdamnaseem.projects.usermgmt.domain.Country.class.getName() + ".states");
+            createCache(cm, org.aqdamnaseem.projects.usermgmt.domain.City.class.getName());
+            createCache(cm, org.aqdamnaseem.projects.usermgmt.domain.State.class.getName());
+            createCache(cm, org.aqdamnaseem.projects.usermgmt.domain.State.class.getName() + ".cities");
+            createCache(cm, org.aqdamnaseem.projects.usermgmt.domain.Address.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
