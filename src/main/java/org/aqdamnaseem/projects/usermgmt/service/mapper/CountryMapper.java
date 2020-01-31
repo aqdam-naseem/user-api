@@ -11,17 +11,16 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface CountryMapper extends EntityMapper<CountryDTO, Country> {
 
+	@Mapping(target = "states", ignore = true)
+	@Mapping(target = "removeState", ignore = true)
+	Country toEntity(CountryDTO countryDTO);
 
-    @Mapping(target = "states", ignore = true)
-    @Mapping(target = "removeState", ignore = true)
-    Country toEntity(CountryDTO countryDTO);
-
-    default Country fromId(Long id) {
-        if (id == null) {
-            return null;
-        }
-        Country country = new Country();
-        country.setId(id);
-        return country;
-    }
+	default Country fromId(Long id) {
+		if (id == null) {
+			return null;
+		}
+		Country country = new Country();
+		country.setId(id);
+		return country;
+	}
 }

@@ -4,9 +4,8 @@ import org.aqdamnaseem.projects.usermgmt.domain.State;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
-
 /**
- * Spring Data  repository for the State entity.
+ * Spring Data repository for the State entity.
  */
 @SuppressWarnings("unused")
 @Repository
